@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      	request.setCharacterEncoding("utf-8");
      	//获取表单信息
      	T_HR_YGJBXX ygjbxx = new T_HR_YGJBXX();
-     	//ygjbxx.setRID(Integer.parseInt(request.getParameter("RID")));
+     	ygjbxx.setRID(Integer.parseInt(request.getParameter("RID")));
 		ygjbxx.setGH(request.getParameter("GH"));
 		ygjbxx.setXM(request.getParameter("XM"));
 		ygjbxx.setJG(request.getParameter("JG"));
@@ -84,16 +84,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 //		ygjbxx.setGXSJ(request.getParameter("GXSJ")));
      	
      	T_HR_YGJBXXOper op = new T_HR_YGJBXXOper();
-	    boolean result = op.addYGJBXX(ygjbxx);
+	    boolean result = op.alterYGJBXX(ygjbxx);
 	    out.println("<br/><br/><br/><br/><br/><br/>");
 	    if(result){
-			out.println("<H2><center>记录添加成功!</center></H2><br>"); 
+			out.println("<H2><center>记录修改成功!</center></H2><br>"); 
 	      	out.println("<H3><center>2秒钟后，自动跳转到员工基本信息页面！</center></H3>");
 	  		response.setHeader("refresh","2;url=T_HR_YGJBXX_all.jsp");
 	  	}else{
-	      	out.println("<H2><center>记录添加失败!</center></H2><br>"); 
-	      	out.println("<H3><center>请重新输入信息!</center></H3>");
-	      	response.setHeader("refresh","2;url=T_HR_YGJBXX_add.jsp");
+	      	out.println("<H2><center>记录修改失败!</center></H2><br>"); 
+	      	out.println("<H3><center>请重新修改信息!</center></H3>");
+	      	response.setHeader("refresh","2;url=T_HR_YGJBXX_alter.jsp?id="+ygjbxx.getRID());
 	    }
      %>
    	</div>

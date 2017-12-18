@@ -1,7 +1,6 @@
 package com.bean;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 public class T_HR_YGJBXX {
 	private int RID;		//人ID  					主键,Not Null
@@ -19,7 +18,7 @@ public class T_HR_YGJBXX {
 	private String HYZK;		//婚姻状况
 	private String XL;			//学历
 	private	String XW;			//学位
-	private Date BYRQ;	//毕业日期
+	private String BYRQ;	//毕业日期
 	private String BYXX;	//毕业学校
 	private String SXZY;	//所学专业
 	private String ZC;			//职称
@@ -32,9 +31,9 @@ public class T_HR_YGJBXX {
 	private String LXDH;	//联系电话
 	private String JTDH;	//家庭电话
 	private String DASZD;	//档案所在地
-	private String  SFYJZZ;	//是否有居住证
-	private Date JZZQSRQ;	//居住证起始日期
-	private Date JZZJZRQ;	//居住证截止日期
+	private String SFYJZZ;	//是否有居住证
+	private String JZZQSRQ;	//居住证起始日期
+	private String JZZJZRQ;	//居住证截止日期
 	private int SFYLDSC;	//是否有劳动手册			Not Null【1：是；0：否（相关问题说明）】
 	private int SFBLGSBJJ;	//是否办理过社保基金		Not Null【1：是；0：否】
 	private int SFBLGGJJ;	//是否办理过公积金		Not Null【1：是；0：否】
@@ -42,8 +41,8 @@ public class T_HR_YGJBXX {
 	private int SFBLGZHBX;	//是否办理过综合保险		Not Null【1：是；0：否】
 	private int YDWSFBLTG;	//原单位是否办理退工		Not Null【1：是；0：否】
 	private String RYLB;		//人员类别				【D_HR_RYLB  1：在职；2：兼职；3：协作；4：其他】
-	private Date SCRZRQ;	//首次入职日期
-	private Date LZRQ;	//离职日期
+	private String SCRZRQ;	//首次入职日期
+	private String LZRQ;	//离职日期
 	private String LZYY;	//离职原因
 	private int GXRID;		//更新人ID
 	private String GXRXM;	//更新人姓名
@@ -140,10 +139,10 @@ public class T_HR_YGJBXX {
 	public void setXW(String xW) {
 		XW = xW;
 	}
-	public Date getBYRQ() {
+	public String getBYRQ() {
 		return BYRQ;
 	}
-	public void setBYRQ(Date bYRQ) {
+	public void setBYRQ(String bYRQ) {
 		BYRQ = bYRQ;
 	}
 	public String getBYXX() {
@@ -224,16 +223,16 @@ public class T_HR_YGJBXX {
 	public void setSFYJZZ(String sFYJZZ) {
 		SFYJZZ = sFYJZZ;
 	}
-	public Date getJZZQSRQ() {
+	public String getJZZQSRQ() {
 		return JZZQSRQ;
 	}
-	public void setJZZQSRQ(Date jZZQSRQ) {
+	public void setJZZQSRQ(String jZZQSRQ) {
 		JZZQSRQ = jZZQSRQ;
 	}
-	public Date getJZZJZRQ() {
+	public String getJZZJZRQ() {
 		return JZZJZRQ;
 	}
-	public void setJZZJZRQ(Date jZZJZRQ) {
+	public void setJZZJZRQ(String jZZJZRQ) {
 		JZZJZRQ = jZZJZRQ;
 	}
 	public int getSFYLDSC() {
@@ -278,16 +277,16 @@ public class T_HR_YGJBXX {
 	public void setRYLB(String rYLB) {
 		RYLB = rYLB;
 	}
-	public Date getSCRZRQ() {
+	public String getSCRZRQ() {
 		return SCRZRQ;
 	}
-	public void setSCRZRQ(Date sCRZRQ) {
+	public void setSCRZRQ(String sCRZRQ) {
 		SCRZRQ = sCRZRQ;
 	}
-	public Date getLZRQ() {
+	public String getLZRQ() {
 		return LZRQ;
 	}
-	public void setLZRQ(Date lZRQ) {
+	public void setLZRQ(String lZRQ) {
 		LZRQ = lZRQ;
 	}
 	public String getLZYY() {

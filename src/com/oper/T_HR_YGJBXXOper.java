@@ -35,7 +35,7 @@ public class T_HR_YGJBXXOper {
 				ygjbxx.setHYZK(rs.getString("HYZK"));
 				ygjbxx.setXL(rs.getString("XL"));
 				ygjbxx.setXW(rs.getString("XW"));
-				ygjbxx.setBYRQ(rs.getDate("BYRQ"));
+				ygjbxx.setBYRQ(rs.getString("BYRQ"));
 				ygjbxx.setBYXX(rs.getString("BYXX"));
 				ygjbxx.setSXZY(rs.getString("SXZY"));
 				ygjbxx.setZC(rs.getString("ZC"));
@@ -49,8 +49,8 @@ public class T_HR_YGJBXXOper {
 				ygjbxx.setJTDH(rs.getString("JTDH"));
 				ygjbxx.setDASZD(rs.getString("DASZD"));
 				ygjbxx.setSFYJZZ(rs.getString("SFYJZZ"));
-				ygjbxx.setJZZQSRQ(rs.getDate("JZZQSRQ"));
-				ygjbxx.setJZZJZRQ(rs.getDate("JZZJZRQ"));
+				ygjbxx.setJZZQSRQ(rs.getString("JZZQSRQ"));
+				ygjbxx.setJZZJZRQ(rs.getString("JZZJZRQ"));
 				ygjbxx.setSFYLDSC(rs.getInt("SFYLDSC"));
 				ygjbxx.setSFBLGSBJJ(rs.getInt("SFBLGSBJJ"));
 				ygjbxx.setSFBLGGJJ(rs.getInt("SFBLGGJJ"));
@@ -58,8 +58,8 @@ public class T_HR_YGJBXXOper {
 				ygjbxx.setSFBLGZHBX(rs.getInt("SFBLGZHBX"));
 				ygjbxx.setYDWSFBLTG(rs.getInt("YDWSFBLTG"));
 				ygjbxx.setRYLB(rs.getString("RYLB"));
-				ygjbxx.setSCRZRQ(rs.getDate("SCRZRQ"));
-				ygjbxx.setLZRQ(rs.getDate("LZRQ"));
+				ygjbxx.setSCRZRQ(rs.getString("SCRZRQ"));
+				ygjbxx.setLZRQ(rs.getString("LZRQ"));
 				ygjbxx.setLZYY(rs.getString("LZYY"));
 				ygjbxx.setGXRID(rs.getInt("GXRID"));
 				ygjbxx.setGXRXM(rs.getString("GXRXM"));
@@ -77,12 +77,13 @@ public class T_HR_YGJBXXOper {
 	}
 	public List<T_HR_YGJBXX> searchByRID(int RID)throws Exception{
 		List<T_HR_YGJBXX> list = new ArrayList<T_HR_YGJBXX>();
+		sql = "SELECT * FROM t_hr_ygjbxx WHERE RID='"+RID+"'";
 		try{
-	    	sql = "SELECT * FROM ygjbxx WHERE RID='"+RID+"'";
+	    	stmt = conn.createStatement();
 	        rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				T_HR_YGJBXX ygjbxx = new T_HR_YGJBXX();
-//				ygjbxx.setRID(rs.getInt("RID"));
+				ygjbxx.setRID(rs.getInt("RID"));
 				ygjbxx.setGH(rs.getString("GH"));
 				ygjbxx.setXM(rs.getString("XM"));
 				ygjbxx.setJG(rs.getString("JG"));
@@ -97,7 +98,7 @@ public class T_HR_YGJBXXOper {
 				ygjbxx.setHYZK(rs.getString("HYZK"));
 				ygjbxx.setXL(rs.getString("XL"));
 				ygjbxx.setXW(rs.getString("XW"));
-				ygjbxx.setBYRQ(rs.getDate("BYRQ"));
+				ygjbxx.setBYRQ(rs.getString("BYRQ"));
 				ygjbxx.setBYXX(rs.getString("BYXX"));
 				ygjbxx.setSXZY(rs.getString("SXZY"));
 				ygjbxx.setZC(rs.getString("ZC"));
@@ -111,8 +112,8 @@ public class T_HR_YGJBXXOper {
 				ygjbxx.setJTDH(rs.getString("JTDH"));
 				ygjbxx.setDASZD(rs.getString("DASZD"));
 				ygjbxx.setSFYJZZ(rs.getString("SFYJZZ"));
-				ygjbxx.setJZZQSRQ(rs.getDate("JZZQSRQ"));
-				ygjbxx.setJZZJZRQ(rs.getDate("JZZJZRQ"));
+				ygjbxx.setJZZQSRQ(rs.getString("JZZQSRQ"));
+				ygjbxx.setJZZJZRQ(rs.getString("JZZJZRQ"));
 				ygjbxx.setSFYLDSC(rs.getInt("SFYLDSC"));
 				ygjbxx.setSFBLGSBJJ(rs.getInt("SFBLGSBJJ"));
 				ygjbxx.setSFBLGGJJ(rs.getInt("SFBLGGJJ"));
@@ -120,8 +121,8 @@ public class T_HR_YGJBXXOper {
 				ygjbxx.setSFBLGZHBX(rs.getInt("SFBLGZHBX"));
 				ygjbxx.setYDWSFBLTG(rs.getInt("YDWSFBLTG"));
 				ygjbxx.setRYLB(rs.getString("RYLB"));
-				ygjbxx.setSCRZRQ(rs.getDate("SCRZRQ"));
-				ygjbxx.setLZRQ(rs.getDate("LZRQ"));
+				ygjbxx.setSCRZRQ(rs.getString("SCRZRQ"));
+				ygjbxx.setLZRQ(rs.getString("LZRQ"));
 				ygjbxx.setLZYY(rs.getString("LZYY"));
 				ygjbxx.setGXRID(rs.getInt("GXRID"));
 				ygjbxx.setGXRXM(rs.getString("GXRXM"));
@@ -138,18 +139,56 @@ public class T_HR_YGJBXXOper {
 		}
 	}
 	public boolean addYGJBXX(T_HR_YGJBXX ygjbxx)throws Exception{
+		Timestamp ts = new Timestamp(System.currentTimeMillis());
 		String sqla = "INSERT INTO t_hr_ygjbxx(XM,SSBM,ZJHM,SFYLDSC,YDWSFBLTG,SFBLGGJJ,SFBLGSBJJ,SFBLGZHBX) "+
 						"VALUES('"+ygjbxx.getXM()+"'," +
-								"'"+ygjbxx.getSSBM()+"'," +
-								"'"+ygjbxx.getZJHM()+"'," +
-								"'"+ygjbxx.getSFYLDSC()+"'," +
-								"'"+ygjbxx.getYDWSFBLTG()+"'," +
-								"'"+ygjbxx.getSFBLGGJJ()+"'," +
-								"'"+ygjbxx.getSFBLGSBJJ()+"'," +
-								"'"+ygjbxx.getSFBLGZHBX()+"')" ;
+						" XM='"+ygjbxx.getXM()+"'," +
+						" JG='"+ygjbxx.getJG()+"'," +
+						" SSBM='"+ygjbxx.getSSBM()+"'," +
+						" ZW='"+ygjbxx.getZW()+"'," +
+						" ZJHM='"+ygjbxx.getZJHM()+"'," +
+						" ZJZL='"+ygjbxx.getZJZL()+"'," +
+						" XB='"+ygjbxx.getXB()+"'," +
+						" ZZMM='"+ygjbxx.getZZMM()+"'," +
+						" CSRQ='"+ygjbxx.getCSRQ()+"'," +
+						" MZ='"+ygjbxx.getMZ()+"'," +
+						" HYZK='"+ygjbxx.getHYZK()+"'," +
+						" XL='"+ygjbxx.getXL()+"'," +
+						" XW='"+ygjbxx.getXW()+"'," +
+						" BYRQ='"+ygjbxx.getBYRQ()+"'," +
+						" BYXX='"+ygjbxx.getBYXX()+"'," +
+						" SXZY='"+ygjbxx.getSXZY()+"'," +
+						" ZC='"+ygjbxx.getZC()+"'," +
+						" HJLB='"+ygjbxx.getHJLB()+"'," +
+						" HJDXZQH='"+ygjbxx.getHJDXZQH()+"'," +
+						" HJDXZ='"+ygjbxx.getHJDXZ()+"'," +
+						" JZDXZQH='"+ygjbxx.getJZDXZQH()+"'," +
+						" JZDXZ='"+ygjbxx.getJZDXZ()+"'," +
+						" JZDYZBM='"+ygjbxx.getJZDYZBM()+"'," +
+						" LXDH='"+ygjbxx.getLXDH()+"'," +
+						" JTDH='"+ygjbxx.getJTDH()+"'," +
+						" DASZD='"+ygjbxx.getDASZD()+"'," +
+						" SFYJZZ='"+ygjbxx.getSFYJZZ()+"'," +
+						" JZZQSRQ='"+ygjbxx.getJZZQSRQ()+"'," +
+						" JZZJZRQ='"+ygjbxx.getJZZJZRQ()+"'," +
+						" SFYLDSC='"+ygjbxx.getSFYLDSC()+"'," +
+						" SFBLGSBJJ='"+ygjbxx.getSFBLGSBJJ()+"'," +
+						" SFBLGGJJ='"+ygjbxx.getSFBLGGJJ()+"'," +
+						" GJJZH='"+ygjbxx.getGJJZH()+"'," +
+						" SFBLGZHBX='"+ygjbxx.getSFBLGZHBX()+"'," +
+						" YDWSFBLTG='"+ygjbxx.getYDWSFBLTG()+"'," +
+						" RYLB='"+ygjbxx.getRYLB()+"'," +
+						" SCRZRQ='"+ygjbxx.getSCRZRQ()+"'," +
+						" LZRQ='"+ygjbxx.getLZRQ()+"'," +
+						" LZYY='"+ygjbxx.getLZYY()+"'," +
+						" GXRID='"+ygjbxx.getGXRID()+"'," +
+						" GXRXM='"+ygjbxx.getGXRXM()+"'," +
+						" GXLX='"+ygjbxx.getGXLX()+"'," +
+						" GXYY='"+ygjbxx.getGXYY()+"'," +
+						" GXSJ='"+ts+"'" ;//当前系统时间
 		sql = sqla;
 		try{
-			Statement stmt = conn.createStatement();
+			stmt = conn.createStatement();
 			if(stmt.executeUpdate(sql)==1)
 				return true;
 			else
