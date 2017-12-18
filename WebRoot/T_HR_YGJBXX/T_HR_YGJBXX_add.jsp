@@ -164,8 +164,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			<tr>
   				<td>更新原因</td>
   				<td><input type="text" id="GXYY" name="GXYY" /></td>
+  				<!-- 
   				<td>更新时间</td>
   				<td><input type="text" id="GXSJ" name="GXSJ" /></td>
+  				 -->
   			</tr>
   		</table>
   		<input type="submit"  value="添加"  onclick="return checkYGJBXXform(this.form)"/>

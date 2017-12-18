@@ -21,19 +21,51 @@ public class T_HR_YGJBXXOper {
 			while(rs.next()){
 				T_HR_YGJBXX ygjbxx = new T_HR_YGJBXX();
 				ygjbxx.setRID(rs.getInt("RID"));
+				ygjbxx.setGH(rs.getString("GH"));
 				ygjbxx.setXM(rs.getString("XM"));
+				ygjbxx.setJG(rs.getString("JG"));
 				ygjbxx.setSSBM(rs.getInt("SSBM"));
+				ygjbxx.setZW(rs.getString("ZW"));
 				ygjbxx.setZJHM(rs.getString("ZJHM"));
+				ygjbxx.setZJZL(rs.getString("ZJZL"));
+				ygjbxx.setXB(rs.getString("XB"));
+				ygjbxx.setZZMM(rs.getString("ZZMM"));
+				ygjbxx.setCSRQ(rs.getString("CSRQ"));
+				ygjbxx.setMZ(rs.getString("MZ"));
+				ygjbxx.setHYZK(rs.getString("HYZK"));
+				ygjbxx.setXL(rs.getString("XL"));
+				ygjbxx.setXW(rs.getString("XW"));
+				ygjbxx.setBYRQ(rs.getDate("BYRQ"));
+				ygjbxx.setBYXX(rs.getString("BYXX"));
+				ygjbxx.setSXZY(rs.getString("SXZY"));
+				ygjbxx.setZC(rs.getString("ZC"));
+				ygjbxx.setHJLB(rs.getString("HJLB"));
+				ygjbxx.setHJDXZQH(rs.getString("HJDXZQH"));
+				ygjbxx.setHJDXZ(rs.getString("HJDXZ"));
+				ygjbxx.setJZDXZQH(rs.getString("JZDXZQH"));
+				ygjbxx.setJZDXZ(rs.getString("JZDXZ"));
+				ygjbxx.setJZDYZBM(rs.getString("JZDYZBM"));
+				ygjbxx.setLXDH(rs.getString("LXDH"));
+				ygjbxx.setJTDH(rs.getString("JTDH"));
+				ygjbxx.setDASZD(rs.getString("DASZD"));
+				ygjbxx.setSFYJZZ(rs.getString("SFYJZZ"));
+				ygjbxx.setJZZQSRQ(rs.getDate("JZZQSRQ"));
+				ygjbxx.setJZZJZRQ(rs.getDate("JZZJZRQ"));
 				ygjbxx.setSFYLDSC(rs.getInt("SFYLDSC"));
-				ygjbxx.setYDWSFBLTG(rs.getInt("YDWSFBLTG"));
-				ygjbxx.setSFBLGGJJ(rs.getInt("SFBLGGJJ"));
 				ygjbxx.setSFBLGSBJJ(rs.getInt("SFBLGSBJJ"));
+				ygjbxx.setSFBLGGJJ(rs.getInt("SFBLGGJJ"));
+				ygjbxx.setGJJZH(rs.getString("GJJZH"));
 				ygjbxx.setSFBLGZHBX(rs.getInt("SFBLGZHBX"));
-				
-				ygjbxx.setBYRQ((rs.getDate("BYRQ").toString()));
-				ygjbxx.setBYRQ((rs.getTime("GXSJ").toString()));
-				
-				
+				ygjbxx.setYDWSFBLTG(rs.getInt("YDWSFBLTG"));
+				ygjbxx.setRYLB(rs.getString("RYLB"));
+				ygjbxx.setSCRZRQ(rs.getDate("SCRZRQ"));
+				ygjbxx.setLZRQ(rs.getDate("LZRQ"));
+				ygjbxx.setLZYY(rs.getString("LZYY"));
+				ygjbxx.setGXRID(rs.getInt("GXRID"));
+				ygjbxx.setGXRXM(rs.getString("GXRXM"));
+				ygjbxx.setGXLX(rs.getString("GXLX"));
+				ygjbxx.setGXYY(rs.getString("GXYY"));
+				ygjbxx.setGXSJ(rs.getTimestamp("GXSJ"));
 				list.add(ygjbxx);
 			}
 			return list;
@@ -50,51 +82,52 @@ public class T_HR_YGJBXXOper {
 	        rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				T_HR_YGJBXX ygjbxx = new T_HR_YGJBXX();
-				ygjbxx.setGH(rs.getInt("GH"));
+//				ygjbxx.setRID(rs.getInt("RID"));
+				ygjbxx.setGH(rs.getString("GH"));
 				ygjbxx.setXM(rs.getString("XM"));
 				ygjbxx.setJG(rs.getString("JG"));
 				ygjbxx.setSSBM(rs.getInt("SSBM"));
-				ygjbxx.setZW(rs.getInt("ZW"));
+				ygjbxx.setZW(rs.getString("ZW"));
 				ygjbxx.setZJHM(rs.getString("ZJHM"));
-				ygjbxx.setZJZL(rs.getInt("ZJZL"));
-				ygjbxx.setXB(rs.getInt("XB"));
+				ygjbxx.setZJZL(rs.getString("ZJZL"));
+				ygjbxx.setXB(rs.getString("XB"));
 				ygjbxx.setZZMM(rs.getString("ZZMM"));
 				ygjbxx.setCSRQ(rs.getString("CSRQ"));
-				ygjbxx.setMZ(rs.getInt("MZ"));
-				ygjbxx.setHYZK(rs.getInt("HYZK"));
-				ygjbxx.setXL(rs.getInt("XL"));
-				ygjbxx.setXW(rs.getInt("XW"));
-				ygjbxx.setBYRQ(rs.getString("BYRQ"));
+				ygjbxx.setMZ(rs.getString("MZ"));
+				ygjbxx.setHYZK(rs.getString("HYZK"));
+				ygjbxx.setXL(rs.getString("XL"));
+				ygjbxx.setXW(rs.getString("XW"));
+				ygjbxx.setBYRQ(rs.getDate("BYRQ"));
 				ygjbxx.setBYXX(rs.getString("BYXX"));
 				ygjbxx.setSXZY(rs.getString("SXZY"));
-				ygjbxx.setZC(rs.getInt("ZC"));
-				ygjbxx.setHJLB(rs.getInt("HJLB"));
-				ygjbxx.setHJDXZQH(rs.getInt("HJDXZQH"));
+				ygjbxx.setZC(rs.getString("ZC"));
+				ygjbxx.setHJLB(rs.getString("HJLB"));
+				ygjbxx.setHJDXZQH(rs.getString("HJDXZQH"));
 				ygjbxx.setHJDXZ(rs.getString("HJDXZ"));
 				ygjbxx.setJZDXZQH(rs.getString("JZDXZQH"));
 				ygjbxx.setJZDXZ(rs.getString("JZDXZ"));
-				ygjbxx.setJZDYZBM(rs.getInt("JZDYZBM"));
+				ygjbxx.setJZDYZBM(rs.getString("JZDYZBM"));
 				ygjbxx.setLXDH(rs.getString("LXDH"));
 				ygjbxx.setJTDH(rs.getString("JTDH"));
 				ygjbxx.setDASZD(rs.getString("DASZD"));
-				ygjbxx.setSFYJZZ(rs.getInt("SFYJZZ"));
-				ygjbxx.setJZZQSRQ(rs.getString("JZZQSRQ"));
-				ygjbxx.setJZZJZRQ(rs.getString("JZZJZRQ"));
+				ygjbxx.setSFYJZZ(rs.getString("SFYJZZ"));
+				ygjbxx.setJZZQSRQ(rs.getDate("JZZQSRQ"));
+				ygjbxx.setJZZJZRQ(rs.getDate("JZZJZRQ"));
 				ygjbxx.setSFYLDSC(rs.getInt("SFYLDSC"));
 				ygjbxx.setSFBLGSBJJ(rs.getInt("SFBLGSBJJ"));
 				ygjbxx.setSFBLGGJJ(rs.getInt("SFBLGGJJ"));
 				ygjbxx.setGJJZH(rs.getString("GJJZH"));
 				ygjbxx.setSFBLGZHBX(rs.getInt("SFBLGZHBX"));
 				ygjbxx.setYDWSFBLTG(rs.getInt("YDWSFBLTG"));
-				ygjbxx.setRYLB(rs.getInt("RYLB"));
-				ygjbxx.setSCRZRQ(rs.getString("SCRZRQ"));
-				ygjbxx.setLZRQ(rs.getString("LZRQ"));
+				ygjbxx.setRYLB(rs.getString("RYLB"));
+				ygjbxx.setSCRZRQ(rs.getDate("SCRZRQ"));
+				ygjbxx.setLZRQ(rs.getDate("LZRQ"));
 				ygjbxx.setLZYY(rs.getString("LZYY"));
-				ygjbxx.setGXRID(rs.getInt("GXGXRID"));
+				ygjbxx.setGXRID(rs.getInt("GXRID"));
 				ygjbxx.setGXRXM(rs.getString("GXRXM"));
-				ygjbxx.setGXLX(rs.getInt("GXLX"));
+				ygjbxx.setGXLX(rs.getString("GXLX"));
 				ygjbxx.setGXYY(rs.getString("GXYY"));
-				ygjbxx.setGXSJ(rs.getString("GXSJ"));
+				ygjbxx.setGXSJ(rs.getTimestamp("GXSJ"));
 				list.add(ygjbxx);
 			}
 			return list;
@@ -142,6 +175,7 @@ public class T_HR_YGJBXXOper {
 		}
 	}
 	public boolean alterYGJBXX(T_HR_YGJBXX ygjbxx)throws Exception{
+		Timestamp ts = new Timestamp(System.currentTimeMillis());
 		String sqla = " UPDATE t_hr_ygjbxx SET ";
 		String sqlc = " WHERE RID=" + ygjbxx.getRID();
 		String sqlb = 	" GH='"+ygjbxx.getGH()+"'," +
@@ -188,7 +222,7 @@ public class T_HR_YGJBXXOper {
 						" GXRXM='"+ygjbxx.getGXRXM()+"'," +
 						" GXLX='"+ygjbxx.getGXLX()+"'," +
 						" GXYY='"+ygjbxx.getGXYY()+"'," +
-						" GXSJ='"+ygjbxx.getGXSJ()+"'" ;
+						" GXSJ='"+ts+"'" ;//当前系统时间
 		sql = sqla + sqlb + sqlc;
 		try{
 			Statement stmt = conn.createStatement();

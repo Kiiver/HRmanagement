@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ page import="java.sql.*,com.bean.T_HR_YGJBXX,com.oper.T_HR_YGJBXXOper" %>
+<%@ page import="java.sql.*,com.bean.T_HR_YGJBXX,com.oper.T_HR_YGJBXXOper,java.text.SimpleDateFormat" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -36,52 +36,53 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      	request.setCharacterEncoding("utf-8");
      	//获取表单信息
      	T_HR_YGJBXX ygjbxx = new T_HR_YGJBXX();
+     	SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
      	//ygjbxx.setRID(Integer.parseInt(request.getParameter("RID")));
-		ygjbxx.setGH(Integer.parseInt(request.getParameter("GH")));
+		ygjbxx.setGH(request.getParameter("GH"));
 		ygjbxx.setXM(request.getParameter("XM"));
 		ygjbxx.setJG(request.getParameter("JG"));
 		ygjbxx.setSSBM(Integer.parseInt(request.getParameter("SSBM")));
-		ygjbxx.setZW(Integer.parseInt(request.getParameter("ZW")));
+		ygjbxx.setZW(request.getParameter("ZW"));
 		ygjbxx.setZJHM(request.getParameter("ZJHM"));
-		ygjbxx.setZJZL(Integer.parseInt(request.getParameter("ZJZL")));
-		ygjbxx.setXB(Integer.parseInt(request.getParameter("XB")));
+		ygjbxx.setZJZL(request.getParameter("ZJZL"));
+		ygjbxx.setXB(request.getParameter("XB"));
 		ygjbxx.setZZMM(request.getParameter("ZZMM"));
 		ygjbxx.setCSRQ(request.getParameter("CSRQ"));
-		ygjbxx.setMZ(Integer.parseInt(request.getParameter("MZ")));
-		ygjbxx.setHYZK(Integer.parseInt(request.getParameter("HYZK")));
-		ygjbxx.setXL(Integer.parseInt(request.getParameter("XL")));
-		ygjbxx.setXW(Integer.parseInt(request.getParameter("XW")));
-		ygjbxx.setBYRQ(request.getParameter("BYRQ"));
+		ygjbxx.setMZ(request.getParameter("MZ"));
+		ygjbxx.setHYZK(request.getParameter("HYZK"));
+		ygjbxx.setXL(request.getParameter("XL"));
+		ygjbxx.setXW(request.getParameter("XW"));
+		ygjbxx.setBYRQ(sdf.parse(request.getParameter("BYRQ")));
 		ygjbxx.setBYXX(request.getParameter("BYXX"));
 		ygjbxx.setSXZY(request.getParameter("SXZY"));
-		ygjbxx.setZC(Integer.parseInt(request.getParameter("ZC")));
-		ygjbxx.setHJLB(Integer.parseInt(request.getParameter("HJLB")));
-		ygjbxx.setHJDXZQH(Integer.parseInt(request.getParameter("HJDXZQH")));
+		ygjbxx.setZC(request.getParameter("ZC"));
+		ygjbxx.setHJLB(request.getParameter("HJLB"));
+		ygjbxx.setHJDXZQH(request.getParameter("HJDXZQH"));
 		ygjbxx.setHJDXZ(request.getParameter("HJDXZ"));
 		ygjbxx.setJZDXZQH(request.getParameter("JZDXZQH"));
 		ygjbxx.setJZDXZ(request.getParameter("JZDXZ"));
-		ygjbxx.setJZDYZBM(Integer.parseInt(request.getParameter("JZDYZBM")));
+		ygjbxx.setJZDYZBM(request.getParameter("JZDYZBM"));
 		ygjbxx.setLXDH(request.getParameter("LXDH"));
 		ygjbxx.setJTDH(request.getParameter("JTDH"));
 		ygjbxx.setDASZD(request.getParameter("DASZD"));
-		ygjbxx.setSFYJZZ(Integer.parseInt(request.getParameter("SFYJZZ")));
-		ygjbxx.setJZZQSRQ(request.getParameter("JZZQSRQ"));
-		ygjbxx.setJZZJZRQ(request.getParameter("JZZJZRQ"));
+		ygjbxx.setSFYJZZ(request.getParameter("SFYJZZ"));
+		ygjbxx.setJZZQSRQ(sdf.parse(request.getParameter("JZZQSRQ")));
+		ygjbxx.setJZZJZRQ(sdf.parse(request.getParameter("JZZJZRQ")));
 		ygjbxx.setSFYLDSC(Integer.parseInt(request.getParameter("SFYLDSC")));
 		ygjbxx.setSFBLGSBJJ(Integer.parseInt(request.getParameter("SFBLGSBJJ")));
 		ygjbxx.setSFBLGGJJ(Integer.parseInt(request.getParameter("SFBLGGJJ")));
 		ygjbxx.setGJJZH(request.getParameter("GJJZH"));
 		ygjbxx.setSFBLGZHBX(Integer.parseInt(request.getParameter("SFBLGZHBX")));
 		ygjbxx.setYDWSFBLTG(Integer.parseInt(request.getParameter("YDWSFBLTG")));
-		ygjbxx.setRYLB(Integer.parseInt(request.getParameter("RYLB")));
-		ygjbxx.setSCRZRQ(request.getParameter("SCRZRQ"));
-		ygjbxx.setLZRQ(request.getParameter("LZRQ"));
+		ygjbxx.setRYLB(request.getParameter("RYLB"));
+		ygjbxx.setSCRZRQ(sdf.parse(request.getParameter("SCRZRQ")));
+		ygjbxx.setLZRQ(sdf.parse(request.getParameter("LZRQ")));
 		ygjbxx.setLZYY(request.getParameter("LZYY"));
-		ygjbxx.setGXRID(Integer.parseInt(request.getParameter("GXGXRID")));
+		ygjbxx.setGXRID(Integer.parseInt(request.getParameter("GXRID")));
 		ygjbxx.setGXRXM(request.getParameter("GXRXM"));
-		ygjbxx.setGXLX(Integer.parseInt(request.getParameter("GXLX")));
+		ygjbxx.setGXLX(request.getParameter("GXLX"));
 		ygjbxx.setGXYY(request.getParameter("GXYY"));
-		ygjbxx.setGXSJ(request.getParameter("GXSJ"));
+//		ygjbxx.setGXSJ(request.getParameter("GXSJ")));
      	
      	T_HR_YGJBXXOper op = new T_HR_YGJBXXOper();
 	    boolean result = op.addYGJBXX(ygjbxx);
