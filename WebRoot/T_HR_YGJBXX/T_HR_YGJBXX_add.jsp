@@ -131,7 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				<td>本地住址</td>
   				<td><input type="text" id="JZDXZ" name="JZDXZ" /></td>
   				<td>邮编</td>
-  				<td><input type="text" id="JZZJZRQ" name="JZZJZRQ" /></td>
+  				<td><input type="text" id="JZDYZBM" name="JZDYZBM" /></td>
   				<td>居住地区划</td>
   				<td><input type="text" id="JZDXZQH" name="JZDXZQH" /></td>
   			</tr>
@@ -170,8 +170,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				 -->
   			</tr>
   		</table>
-  		<input type="submit"  value="添加"  onclick="return checkYGJBXXform(this.form)"/>
-  		<input type="reset"  value="重置"  />
+  		<div class="formsubmit">
+	  		<input type="submit"  value="添加"  onclick="return checkYGJBXXform(this.form)"/>
+	  		<input type="reset"  value="重置"  />
+  		</div>
   		</div>
   		</form>
    	</div>

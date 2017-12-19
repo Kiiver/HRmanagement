@@ -51,8 +51,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       			<th colspan="2"><a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_add.jsp" title="添加/Add">添加/Add</a></th>
       		</tr>
     <% 
-        T_HR_YGJBXXOper all= new T_HR_YGJBXXOper();
-        List<T_HR_YGJBXX> list = all.findALLT_HR_YGJBXXs();
+    	String RID = request.getParameter("RID");
+        T_HR_YGJBXXOper op = new T_HR_YGJBXXOper();
+        List<T_HR_YGJBXX> list = op.searchByRID(Integer.parseInt(RID));
         T_HR_YGJBXX each = new T_HR_YGJBXX();
                 
          //分页显示

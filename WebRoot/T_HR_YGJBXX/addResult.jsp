@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		ygjbxx.setGXRXM(request.getParameter("GXRXM"));
 		ygjbxx.setGXLX(request.getParameter("GXLX"));
 		ygjbxx.setGXYY(request.getParameter("GXYY"));
-//		ygjbxx.setGXSJ(request.getParameter("GXSJ")));
+//		ygjbxx.setGXSJ(request.getParameter("GXSJ")));//设置为当前系统时间
      	
      	T_HR_YGJBXXOper op = new T_HR_YGJBXXOper();
 	    boolean result = op.addYGJBXX(ygjbxx);

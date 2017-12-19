@@ -33,10 +33,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <%
     	String ID = request.getParameter("id");
-    	System.out.println("id is OK");
+    	//System.out.println("id is OK，ID="+ID);
     	T_HR_YGJBXXOper op = new T_HR_YGJBXXOper();
-    	List<T_HR_YGJBXX> list = op.searchByRID(Integer.parseInt(ID));
-    	System.out.println("Operation is OK");
+    	List<T_HR_YGJBXX> list = op.searchByRID(Integer.parseInt(ID));//查询出的结果没有ID
+    	//System.out.println("Operation is OK");
      	T_HR_YGJBXX each = (T_HR_YGJBXX)list.get(0);
      	
     %>
@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div style="padding-left:10px;">
   		<table style="text-align: end;">
   			<caption align="top"><h3>员工基本信息表</h3></caption> 
-  			<tr style="display:">
+  			<tr style="display:none">
   				<td>RID</td>
   				<td><input type="text" id="RID" name="RID" value="<%=ID %>"/></td>
   			</tr> 
@@ -145,7 +145,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				<td>本地住址</td>
   				<td><input type="text" id="JZDXZ" name="JZDXZ" value="<%=each.getJZDXZ() %>"/></td>
   				<td>邮编</td>
-  				<td><input type="text" id="JZZJZRQ" name="JZZJZRQ" value="<%=each.getJZZJZRQ() %>"/></td>
+  				<td><input type="text" id="JZDYZBM" name="JZDYZBM" value="<%=each.getJZDYZBM() %>"/></td>
   				<td>居住地区划</td>
   				<td><input type="text" id="JZDXZQH" name="JZDXZQH" value="<%=each.getJZDXZQH() %>"/></td>
   			</tr>
@@ -182,8 +182,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				<td><input type="text" id="GXSJ" name="GXSJ" value="<%=each.getGXSJ() %>"/></td>
   			</tr>
   		</table>
-  		<input type="submit"  value="添加"  onclick="return checkYGJBXXform(this.form)"/>
-  		<input type="reset"  value="重置"  />
+  		<div class="formsubmit">
+	  		<input type="submit"  value="提交"  onclick="return checkYGJBXXform(this.form)"/>
+	  		<input type="reset"  value="重置"  />
   		</div>
   		</form>
    	</div>
