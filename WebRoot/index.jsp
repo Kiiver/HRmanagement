@@ -23,37 +23,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div id="mainbody" class="page-container"  align="center" style="height: 400px;padding-top: 5px;">
 	<h2>管理员登录</h2>
 	
-	<form action="login" method="post">
+	<form action="login.action" method="post">
 		<input type="text" name="usr.name" placeholder="用户名"/><br/>
 		<input type="password" name="usr.password" placeholder="密码"/><br/>
 	    <input type="submit"  value="登录"  />
 	</form>
 	</div>
-	
-	<!-- 
-	<s:form action="login" method="post">
-		<s:textfield name="usr.name" key="用户名"/>
-		
-		<s:textfield name="usr.age" key="年龄"/>
-		<s:select name="usr.sex" key="性别" labelposition="left" multiple="false" list="{'男','女'}"/>
-		<s:textfield name="usr.birth" key="生日"/>
-		
-		<s:password name="usr.password" key="密码"/>
-		<s:submit key="Login"/>
-	</s:form>
-	 
-	<form action="login" method="post" >
-		用户名：<input type="text" name="usr.name" /><br/>
-		
-		年龄：<input type="text" name="usr.age" /><br/>
-		生日：<input type="text" name="usr.birth" /><br/>
-		性别:<label><input name="usr.sex" type="radio" checked="checked" value="1"/>男 </label> 
-			<label><input name="usr.sex" type="radio" value="0" />女 </label> <br/>
-		
-		密码：<input type="password" name="usr.password" /><br/>
-		<input type="submit" value="登录"/>
-	</form>
-	-->
  
   </body>
 </html>

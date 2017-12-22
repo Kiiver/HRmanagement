@@ -60,3 +60,52 @@ function checkYGJBXXform(form){
 	}
 	return true;
 }
+function checkYGGZform(form){
+	//更新人ID,必须为数值型
+	if(isNaN(form.RID.value)){
+		alert("data of RID must be int");
+		return false;
+	}
+	if(form.JBGZ.value==""){
+		form.JBGZ.focus();
+		return false;
+	}
+	if(form.YXBS.value==""){
+		form.YXBS.focus();
+		return false;
+	}
+	if(isNaN(form.GXRID.value)){
+		alert("data of GXRID must be int");
+		return false;
+	}
+	if(form.GXLX.value==""){
+		form.GXLX.focus();
+		return false;
+	}
+	return true;
+}
+function checkXXLLform(form){
+	//更新人ID,必须为数值型
+	if(isNaN(form.RID.value)){
+		alert("data of RID must be int");
+		return false;
+	}
+	//date类型数据格式控制
+	if(form.QSRQ.value==""){
+		form.QSRQ.focus();
+		return false;
+	}
+	if(form.JZRQ.value==""){
+		form.JZRQ.focus();
+		return false;
+	}
+	if(isNaN(form.GXRID.value)){
+		alert("data of GXRID must be int");
+		return false;
+	}
+	if(form.GXRXM.value==""){
+		form.SCRXM.focus();
+		return false;
+	}
+	return true;
+}

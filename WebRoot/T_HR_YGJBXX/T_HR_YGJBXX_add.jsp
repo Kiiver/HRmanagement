@@ -17,21 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   	<div id="mytop">
-		<div id="myhead">
-			<span style="float:left;">欢迎：<br></span>
-		    <span style="float:right;"><a href="<%=basePath %>index.jsp" target="_top">注	销</a></span>
-		 	<table style="float: left;">
-		 		<tr>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp" title="员工基本信息">员工基本信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp" title="部门信息">部门信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_JCQK/T_HR_JCQK_all.jsp" title="奖惩情况">奖惩情况</a></td>
-		 		</tr>
-		 	</table>
-		 	
-	    </div>
-    </div>
-  	<div id="mainbody">
+   	<div> <jsp:include  page="top.jsp" flush="true"/></div>
+  	<div id="mainbody" align="center">
 		<form enctype="multipart/form-data" action="T_HR_YGJBXX/addResult.jsp" method="post">
 		<div style="padding-left:10px;">
   		<table style="text-align: end;">

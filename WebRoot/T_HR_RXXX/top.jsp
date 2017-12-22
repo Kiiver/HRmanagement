@@ -1,6 +1,4 @@
 <%@ page language="java" import="java.util.*,com.opensymphony.xwork2.ActionContext" pageEncoding="utf-8"%>
-<%@taglib prefix="s" uri="/struts-tags"%>
-
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -12,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>人事管理系统主页</title>
-	<link rel="stylesheet" href="<%=basePath %>/CSS/Mycss.css" type="text/css"></link>
+	<link rel="stylesheet" href="<%=basePath %>/CSS/Formcss.css" type="text/css"></link>
 
   </head>
   
@@ -35,37 +33,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		 	
 	    </div>
     </div>
-<div id="mainbody">
-	<table align=center cellpadding="10" cellspacing="10" color="burlywood">
-	  <tr >
-	    <td>
-	    	<div>
-	    	<a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp" title="员工基本信息">
-	    	<img src="<%=path %>/images/YGJBXX.png" width="240" height="180" />
-	    	</a>
-	    	<center>员工基本信息</center>
-	    	</div>
-	    </td>
-	    
-	    <td>
-	    	<div>
-	    	<a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp" title="部门信息">
-	    	<img src="<%=path %>/images/BMXX.png" width="240" height="180" />
-	    	</a>
-	    	<center >部门信息</center>
-	    	</div>
-	    </td>
-	    
-	    <td>
-	    	<div>
-	    	<a href="<%=basePath %>T_HR_XXLL/T_HR_XXLL_all.jsp" title="奖惩情况">
-	    	<img src="<%=path %>/images/JCQK.png" width="240" height="180" />
-	    	</a>
-	    	<center >奖惩情况</center>
-	    	</div>
-	    </td>
-	  </tr>
-	</table>
-</div>
   </body>
 </html>

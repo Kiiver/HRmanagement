@@ -14,7 +14,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  		<div> <jsp:include  page="top.jsp" flush="true"/></div>
+  	<div id="mytop">
+		<div id="myhead">
+			<span style="float:left;">欢迎：<br></span>
+		    <span style="float:right;"><a href="<%=basePath %>index.jsp" target="_top">注	销</a></span>
+		 	<table style="float: left;">
+		 		<tr>
+		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp" title="员工基本信息">员工基本信息</a></td>
+		 			<td class="headtd"><a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp" title="部门信息">部门信息</a></td>
+		 			<td class="headtd"><a href="<%=basePath %>T_HR_JCQK/T_HR_JCQK_all.jsp" title="奖惩情况">奖惩情况</a></td>
+		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGGZ/T_HR_JCQK_all.jsp" title="员工工资">员工工资</a></td>
+		 		</tr>
+		 	</table>
+		 	
+	    </div>
+    </div>
   		<div id="mainbody">
   		<div id="search">
 			<form action="T_HR_YGJBXX/searchResult.jsp" method="get" style="text-align:center">
@@ -38,8 +52,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       			<th colspan="2"><a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_add.jsp" title="添加/Add">添加/Add</a></th>
       		</tr>
     <% 
-        T_HR_YGJBXXOper all= new T_HR_YGJBXXOper();
-        List<T_HR_YGJBXX> list = all.findALLT_HR_YGJBXXs();
+    	String RID = request.getParameter("RID");
+        T_HR_YGJBXXOper op = new T_HR_YGJBXXOper();
+        List<T_HR_YGJBXX> list = op.searchByRID(Integer.parseInt(RID));
         T_HR_YGJBXX each = new T_HR_YGJBXX();
                 
          //分页显示

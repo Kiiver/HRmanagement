@@ -17,20 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   	<div id="mytop">
-		<div id="myhead">
-			<span style="float:left;">欢迎：<br></span>
-		    <span style="float:right;"><a href="<%=basePath %>index.jsp" target="_top">注	销</a></span>
-		 	<table style="float: left;">
-		 		<tr>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp" title="员工基本信息">员工基本信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp" title="部门信息">部门信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_JCQK/T_HR_JCQK_all.jsp" title="奖惩情况">奖惩情况</a></td>
-		 		</tr>
-		 	</table>
-		 	
-	    </div>
-    </div>
+   	<div> <jsp:include  page="top.jsp" flush="true"/></div>
     <%
     	String ID = request.getParameter("id");
     	//System.out.println("id is OK，ID="+ID);
@@ -40,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      	T_HR_YGJBXX each = (T_HR_YGJBXX)list.get(0);
      	
     %>
-  	<div id="mainbody">
+  	<div id="mainbody" align="center">
   	
 		<form enctype="multipart/form-data" action="T_HR_YGJBXX/alterResult.jsp" method="post">
 		<div style="padding-left:10px;">
@@ -182,6 +169,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				<td><input type="text" id="GXSJ" name="GXSJ" value="<%=each.getGXSJ() %>"/></td>
   			</tr>
   		</table>
+  		</div>
   		<div class="formsubmit">
 	  		<input type="submit"  value="提交"  onclick="return checkYGJBXXform(this.form)"/>
 	  		<input type="reset"  value="重置"  />

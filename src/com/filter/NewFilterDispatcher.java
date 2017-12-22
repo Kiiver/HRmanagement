@@ -5,14 +5,11 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter;
+import org.apache.struts2.dispatcher.FilterDispatcher;
 
-/**
- * 增加过滤器，解决中文问题
- * 说明：中文过滤器只负责传递途中的过滤处理，所以页面中还要设置页面的字符集。
- * */
-public class NewFilterDispatcher extends StrutsPrepareAndExecuteFilter {
-	 private static String encoding = "GB2312";
+@SuppressWarnings("deprecation")
+public class NewFilterDispatcher extends FilterDispatcher {
+	 private static String encoding = "utf-8";
 
 	    public void init(FilterConfig filterConfig) throws ServletException {
 	        super.init(filterConfig);
