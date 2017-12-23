@@ -19,27 +19,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <%
     	String ID = request.getParameter("id");
     	T_HR_RXXXOper op = new T_HR_RXXXOper();
-    	List<T_HR_RXXX> list = op.searchT_HR_RXXX(Integer.parseInt(ID));//查询出的结果没有ID
+    	List<T_HR_RXXX> list = op.searchByID(Integer.parseInt(ID));//查询出的结果没有ID
      	T_HR_RXXX each = (T_HR_RXXX)list.get(0);
      	
     %>
   	<div id="mainbody" align="center">
-		<form enctype="multipart/form-data" action="T_HR_RXXX/alterResult.jsp" method="post">
+  	 	<form  action="T_HR_RXXX/upload.jsp" method="post" enctype="multipart/form-data">
+ 		<table style="text-align: end;" class="showTB" align="center" cellpadding="10" cellspacing="0">
+ 			<caption align="top"><h3>人像信息表</h3></caption> 
+ 			<tr>
+  				<td>相片</td>
+  				<td><input type="file" name="file"/></td>
+  				<td><input type="submit" name="submit" value="上传" onclick=""/></td>
+  			</tr> 
+	 	</table>
+	 	</form>
+		<form action="T_HR_RXXX/alterResult.jsp" method="post">
 		<div style="padding-left:10px;">
-  		<table style="text-align: end;">
-  			<caption align="top"><h3>人像信息表</h3></caption> 
-  			<tr style="display:">
+  		<table class="showTB" align="center" cellpadding="10" cellspacing="0">
+  			<tr>
+  				<td>相片</td>
+  				<td><input type="file" name="file"/></td>
+  				<td>相片名称</td>
+  				<td><%=each.getXP() %></td>
+  			</tr> 
+  			<tr>
+  				
+  			</tr> 
+  			<tr style="display:none">
   				<td>UUID</td>
   				<td><input type="text" id="ID" name="ID" value="<%=ID %>"/></td>
   			</tr> 
   			<tr>
   				<td style="color:red">人ID</td>
   				<td><input type="text" id="RID" name="RID" value="<%=each.getRID() %>"/></td>
-  				<td>拍摄时间</td>
+  				<td style="color:red">拍摄时间</td>
   				<td><input type="text" id="PSSJ" name="PSSJ" value="<%=each.getPSSJ() %>"/></td>
-  				<td>相片</td>
-  				<td><input type="text" id="XP" name="XP" value="<%=each.getXP() %>"/></td>
-  				<td style="text-align: center;padding-left: 10px;"><div>照片信息</div><img id="img" src="<%=path %>/images/bg.jpg" width="90" height="120" /></td>
   			</tr>
   			<tr>
   				<td>类型</td>
@@ -61,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			</tr>
   		</table>
   		<div class="formsubmit">
-	  		<input type="submit"  value="提交"  onclick="return checkYGJBXXform(this.form)"/>
+	  		<input type="submit"  value="提交"  onclick="return checkRXXXform(this.form)"/>
 	  		<input type="reset"  value="重置"  />
   		</div>
   		</div>

@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ page import="java.sql.*,com.bean.T_HR_YGJBXX,com.oper.T_HR_YGJBXXOper" %>
+<%@ page import="java.sql.*,com.bean.T_HR_XXLL,com.oper.T_HR_XXLLOper" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,53 +9,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>员工基本信息</title>
+    <title>学习履历表</title>
 	<link rel="stylesheet" href="<%=basePath %>/CSS/Formcss.css" type="text/css"></link>
   </head>
   
   <body>
-  	<div id="mytop">
-		<div id="myhead">
-			<span style="float:left;">欢迎：<br></span>
-		    <span style="float:right;"><a href="<%=basePath %>index.jsp" target="_top">注	销</a></span>
-		 	<table style="float: left;">
-		 		<tr>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp" title="员工基本信息">员工基本信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp" title="部门信息">部门信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_JCQK/T_HR_JCQK_all.jsp" title="奖惩情况">奖惩情况</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGGZ/T_HR_JCQK_all.jsp" title="员工工资">员工工资</a></td>
-		 		</tr>
-		 	</table>
-		 	
-	    </div>
-    </div>
+  	<div> <jsp:include  page="top.jsp" flush="true"/></div>
   		<div id="mainbody">
   		<div id="search">
-			<form action="T_HR_YGJBXX/searchResult.jsp" method="get" style="text-align:center">
-				<input type="text" placeholder="输入编号" name="RID">
+			<form action="T_HR_XXLL/searchResult.jsp" method="get" style="text-align:center">
+				<input type="text" placeholder="输入履历ID" name="XXLLID">
 				<input type="submit" value="搜索" />
 			</form>
 		</div>
         <table class="showTB" align="center" cellpadding="10" cellspacing="0" >
-        	<caption align="top"><h3>员工基本信息表</h3></caption>
+        <caption align="top"><h3>学习培训履历表</h3></caption>
       		<tr style="background-color:#c6c6c6">
-      			<th>ID号</th>
-      			<th>工号</th>
-      			<th>姓名</th>
-      			<th>性别</th>
-      			<th>籍贯</th>
-      			<th>所属部门</th>
-      			<th>职位</th>
-      			<th>证件号码</th>
-      			<th>政治面貌</th>
-      			<th>出生日期</th>
-      			<th colspan="2"><a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_add.jsp" title="添加/Add">添加/Add</a></th>
+      			<th>履历ID</th>
+      			<th>人ID</th>
+      			<th>就读学校</th>
+      			<th>所学专业</th>
+      			<th>更新时间</th>
+      			<th colspan="2"><a href="T_HR_XXLL/T_HR_XXLL_add.jsp" title="添加/Add">添加/Add</a></th>
       		</tr>
     <% 
-    	String RID = request.getParameter("RID");
-        T_HR_YGJBXXOper op = new T_HR_YGJBXXOper();
-        List<T_HR_YGJBXX> list = op.searchByRID(Integer.parseInt(RID));
-        T_HR_YGJBXX each = new T_HR_YGJBXX();
+    	String ID = request.getParameter("XXLLID");
+        T_HR_XXLLOper op= new T_HR_XXLLOper();
+        List<T_HR_XXLL> list = op.searchByXXLLID(Integer.parseInt(ID));
+        T_HR_XXLL each = new T_HR_XXLL();
                 
          //分页显示
         int i,num;
@@ -73,21 +54,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	i=0;
         	num = (currentPage-1)*pageSize+1;
 	        while(i<pageSize && num<=totalSize){
-	        	each = (T_HR_YGJBXX)list.get(num-1);
+	        	each = (T_HR_XXLL)list.get(num-1);
 		     %>
 		     	<tr>
+			     	<td><%=each.getXXLLID() %></td>
 			     	<td><%=each.getRID() %></td>
-			     	<td><%=each.getGH() %></td>
-			     	<td><%=each.getXM() %></td>
-			     	<td><%=each.getXB() %></td>
-			     	<td><%=each.getJG() %></td>
-			     	<td><%=each.getSSBM() %></td>
-			     	<td><%=each.getZW() %></td>
-			     	<td><%=each.getZJHM() %></td>
-			     	<td><%=each.getZZMM() %></td>
-			     	<td><%=each.getCSRQ() %></td>
-			     	<td><a href="T_HR_YGJBXX/T_HR_YGJBXX_alter.jsp?id=<%=each.getRID() %>" title="编辑">编辑</a></td>
-			     	<td><a href="T_HR_YGJBXX/delResult.jsp?id=<%=each.getRID() %>" title="删除">删除 </a></td>
+			     	<td><%=each.getJDXX() %></td>
+			     	<td><%=each.getSXZY() %></td>
+			     	<td><a href="T_HR_XXLL/T_HR_XXLL_alter.jsp?id=<%=each.getXXLLID() %>" title="编辑">编辑</a></td>
+			     	<td><a href="T_HR_XXLL/delResult.jsp?id=<%=each.getRID() %>" title="删除">删除 </a></td>
 		     	</tr>
 		     <%
 		     i++;num++;
@@ -106,11 +81,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div align="center">
       		<p>第<%=currentPage %>页   共<%=totalPage %>页</p>
       		<%if(currentPage>1){ %>
-      			<a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp?page=1">第一页</a>
-      			<a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp?page=<%=currentPage-1 %>">上一页</a>
+      			<a href="T_HR_XXLL/T_HR_XXLL_all.jsp?page=1">第一页</a>
+      			<a href="T_HR_XXLL/T_HR_XXLL_all.jsp?page=<%=currentPage-1 %>">上一页</a>
       		<%}if(currentPage<totalPage){ %>
-      			<a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp?page=<%=currentPage+1 %>">下一页</a>
-      			<a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp?page=<%=totalPage %>">最后一页</a>
+      			<a href="T_HR_XXLL/T_HR_XXLL_all.jsp?page=<%=currentPage+1 %>">下一页</a>
+      			<a href="T_HR_XXLL/T_HR_XXLL_all.jsp?page=<%=totalPage %>">最后一页</a>
       		<%}       
       		%>
       </div>

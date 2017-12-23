@@ -34,8 +34,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       			<th colspan="2"><a href="<%=basePath %>T_HR_RXXX/T_HR_RXXX_add.jsp" title="添加/Add">添加/Add</a></th>
       		</tr>
       	<% 
-           T_HR_RXXXOper all= new T_HR_RXXXOper();
-           List<T_HR_RXXX> list = all.findALLT_HR_RXXX();
+      		String ID = request.getParameter("ID");
+           T_HR_RXXXOper op = new T_HR_RXXXOper();
+           List<T_HR_RXXX> list = op.searchByID(Integer.parseInt(ID));
            T_HR_RXXX each = new T_HR_RXXX();
                 
          //分页显示
@@ -64,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			     	<td><%=each.getYT() %></td>
 			     	<td><%=each.getGXSJ() %></td>
 <!--			     	<td><%=each.getXP() %></td>-->
-			     	<td style="text-align: center;padding-left: 10px;"><img id="img" src="<%=path %>/Pictures/<%=each.getXP() %>" width="90" height="120" /></td>
+			    	<td style="text-align: center;padding-left: 10px;"><img id="img" src="<%=path %>/Pictures/<%=each.getXP() %>" width="90" height="120" /></td>
 			     	<td><a href="T_HR_RXXX/T_HR_RXXX_alter.jsp?id=<%=each.getID() %>" title="编辑">编辑</a></td>
 			     	<td><a href="T_HR_RXXX/delResult.jsp?id=<%=each.getID() %>" title="删除">删除 </a></td>
 		     	</tr>
@@ -85,11 +86,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div align="center">
       		<p>第<%=currentPage %>页   共<%=totalPage %>页</p>
       		<%if(currentPage>1){ %>
-      			<a href="<%=basePath %>T_HR_RXXX/T_HR_RXXX_all.jsp?page=1">第一页</a>
-      			<a href="<%=basePath %>T_HR_RXXX/T_HR_RXXX_all.jsp?page=<%=currentPage-1 %>">上一页</a>
+      			<a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp?page=1">第一页</a>
+      			<a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp?page=<%=currentPage-1 %>">上一页</a>
       		<%}if(currentPage<totalPage){ %>
-      			<a href="<%=basePath %>T_HR_RXXX/T_HR_RXXX_all.jsp?page=<%=currentPage+1 %>">下一页</a>
-      			<a href="<%=basePath %>T_HR_RXXX/T_HR_RXXX_all.jsp?page=<%=totalPage %>">最后一页</a>
+      			<a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp?page=<%=currentPage+1 %>">下一页</a>
+      			<a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp?page=<%=totalPage %>">最后一页</a>
       		<%}       
       		%>
       </div>

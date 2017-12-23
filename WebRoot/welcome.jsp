@@ -17,25 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
 <body>
-	<div id="mytop">
-		<div id="myhead">
-			<span style="float:left;">
-		      欢迎：<br>
-		    </span>
-		    <span style="float:right;"><a href="<%=basePath %>index.jsp" target="_top">&nbsp;&nbsp;注	销&nbsp;&nbsp;</a></span>
-		    <span style="float:right;"><a href="<%=basePath %>welcome.jsp" target="_top">&nbsp;&nbsp;主	页&nbsp;&nbsp;</a></span>
-		 	<table style="float: left;">
-		 		<tr>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp" title="员工基本信息">员工基本信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp" title="部门信息">部门信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGGZ/T_HR_YGGZ_all.jsp" title="员工工资">员工工资</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_RXXX/T_HR_RXXX_all.jsp" title="人像信息">人像信息</a></td>
-		 		</tr>
-		 	</table>
-		 	
-	    </div>
-    </div>
-<div id="mainbody">
+	<div> <jsp:include  page="top.jsp" flush="true"/></div>
+	<div id="mainbody">
 	<table align=center cellpadding="10" cellspacing="10" color="burlywood">
 	  <tr >
 	    <td>
@@ -58,14 +41,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    
 	    <td>
 	    	<div>
-	    	<a href="<%=basePath %>T_HR_XXLL/T_HR_XXLL_all.jsp" title="奖惩情况">
-	    	<img src="<%=path %>/images/JCQK.png" width="240" height="180" />
+	    	<a href="<%=basePath %>T_HR_XXLL/T_HR_XXLL_all.jsp" title="学习履历">
+	    	<img src="<%=path %>/images/XXLL.png" width="240" height="180" />
 	    	</a>
-	    	<center >奖惩情况</center>
+	    	<center >学习履历</center>
 	    	</div>
 	    </td>
 	  </tr>
 	</table>
-</div>
+	</div>
   </body>
 </html>

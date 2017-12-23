@@ -9,11 +9,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>员工工资</title>
+    <title>员工工资表</title>
 	<link rel="stylesheet" href="<%=basePath %>/CSS/Formcss.css" type="text/css"></link>
 	<script src="JavaScript/Myscript.js"></script>
-   		
-	</script>
   </head>
   
   <body>
@@ -29,14 +27,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     %>
   	<div id="mainbody" align="center">
   	
-		<form enctype="multipart/form-data" action="T_HR_YGGZ/alterResult.jsp" method="post">
+		<form action="T_HR_YGGZ/alterResult.jsp" method="post">
 		<div style="padding-left:10px;">
-  		<table style="text-align: end;">
-  			<caption align="top"><h3>员工工资</h3></caption> 
+  		<table style="text-align: end;" class="showTB" align="center" cellpadding="10" cellspacing="0">
+  			<caption align="top"><h3>员工工资表</h3></caption>
   			<tr>
-  				<td>工资ID</td>
-  				<td><input type="text" id="GZID" name="GZID" value="<%=each.getGZID() %>"/></td>
-  				<td>人ID</td>
+  				<td style="color:red">人ID</td>
   				<td><input type="text" id="RID" name="RID" value="<%=each.getRID() %>"/></td>	
   			</tr>
   			<tr>

@@ -12,16 +12,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>员工基本信息</title>
 	<link rel="stylesheet" href="<%=basePath %>/CSS/Formcss.css" type="text/css"></link>
 	<script src="JavaScript/Myscript.js"></script>
-   		
-	</script>
   </head>
   
   <body>
    	<div> <jsp:include  page="top.jsp" flush="true"/></div>
   	<div id="mainbody" align="center">
-		<form enctype="multipart/form-data" action="T_HR_YGJBXX/addResult.jsp" method="post">
+		<form action="T_HR_YGJBXX/addResult.jsp" method="post">
 		<div style="padding-left:10px;">
-  		<table style="text-align: end;">
+  		<table style="text-align: end;" >
   			<caption align="top"><h3>员工基本信息表</h3></caption>  
   			<tr>
   				<td style="color:red">姓名</td>
@@ -30,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				<td><input type="text" id="XB" name="XB" /></td>
   				<td>籍贯</td>
   				<td><input type="text" id="JG" name="JG" /></td>
-  				<td rowspan="4" style="text-align: center;padding-left: 10px;"><div>照片信息</div><img id="img" src="<%=path %>/images/bg.jpg" width="90" height="120" /></td>
+  				
   			</tr>
   			<tr>
   				<td>出生年月</td>

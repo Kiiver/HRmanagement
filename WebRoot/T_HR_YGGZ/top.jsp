@@ -28,6 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		 			<td class="headtd"><a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp" title="部门信息">部门信息</a></td>
 		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGGZ/T_HR_YGGZ_all.jsp" title="员工工资">员工工资</a></td>
 		 			<td class="headtd"><a href="<%=basePath %>T_HR_RXXX/T_HR_RXXX_all.jsp" title="人像信息">人像信息</a></td>
+		 			<td class="headtd"><a href="<%=basePath %>T_HR_XXLL/T_HR_XXLL_all.jsp" title="学习履历">学习履历</a></td>
 		 		</tr>
 		 	</table>
 		 	

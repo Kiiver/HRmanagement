@@ -5,12 +5,12 @@ import java.sql.Timestamp;
 public class T_HR_YGGZ {
 	private int GZID;		//工资ID  					主键,Not Null
 	private int RID;		//人ID
-	private int JBGZ;		//基本工资					Not Null
-	private int ZWGZ;		//职务工资
-	private int YXBS;		//有效标识 				    Not Null
-	private int GXRID;		//更新人ID				       字典 D_HR_ZW 
+	private String JBGZ;		//基本工资					Not Null
+	private String ZWGZ;		//职务工资
+	private String YXBS;		//有效标识 				    Not Null
+	private String GXRID;		//更新人ID				       字典 D_HR_ZW 
 	private String GXRXM;	//更新人姓名				    Not Null
-	private int GXLX;		//更新类型
+	private String GXLX;		//更新类型
 	private String GXYY;	//更新原因
 	private Timestamp GXSJ;	//更新时间
 	public int getGZID() {
@@ -25,28 +25,28 @@ public class T_HR_YGGZ {
 	public void setRID(int rID) {
 		RID = rID;
 	}
-	public int getJBGZ() {
+	public String getJBGZ() {
 		return JBGZ;
 	}
-	public void setJBGZ(int jBGZ) {
+	public void setJBGZ(String jBGZ) {
 		JBGZ = jBGZ;
 	}
-	public int getZWGZ() {
+	public String getZWGZ() {
 		return ZWGZ;
 	}
-	public void setZWGZ(int zWGZ) {
+	public void setZWGZ(String zWGZ) {
 		ZWGZ = zWGZ;
 	}
-	public int getYXBS() {
+	public String getYXBS() {
 		return YXBS;
 	}
-	public void setYXBS(int yXBS) {
+	public void setYXBS(String yXBS) {
 		YXBS = yXBS;
 	}
-	public int getGXRID() {
+	public String getGXRID() {
 		return GXRID;
 	}
-	public void setGXRID(int gXRID) {
+	public void setGXRID(String gXRID) {
 		GXRID = gXRID;
 	}
 	public String getGXRXM() {
@@ -55,10 +55,10 @@ public class T_HR_YGGZ {
 	public void setGXRXM(String gXRXM) {
 		GXRXM = gXRXM;
 	}
-	public int getGXLX() {
+	public String getGXLX() {
 		return GXLX;
 	}
-	public void setGXLX(int gXLX) {
+	public void setGXLX(String gXLX) {
 		GXLX = gXLX;
 	}
 	public String getGXYY() {
@@ -73,6 +73,4 @@ public class T_HR_YGGZ {
 	public void setGXSJ(Timestamp gXSJ) {
 		GXSJ = gXSJ;
 	}
-	
-	
 }

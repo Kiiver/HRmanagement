@@ -12,66 +12,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>学习履历</title>
 	<link rel="stylesheet" href="<%=basePath %>/CSS/Formcss.css" type="text/css"></link>
 	<script src="JavaScript/Myscript.js"></script>
-	<style>
-   		form input {}
-	</style>
   </head>
   
   <body>
-   	<div id="mytop">
-		<div id="myhead">
-			<span style="float:left;">欢迎：<br></span>
-		    <span style="float:right;"><a href="<%=basePath %>index.jsp" target="_top">注	销</a></span>
-		 	<table style="float: left;">
-		 		<tr>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp" title="员工基本信息">员工基本信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp" title="部门信息">部门信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_JCQK/T_HR_JCQK_all.jsp" title="奖惩情况">奖惩情况</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGGZ/T_HR_JCQK_all.jsp" title="员工工资">员工工资</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_XXLL/T_HR_XXLL_all.jsp" title="学历履历">学历履历</a></td>
-		 		</tr>
-		 	</table>
-		 	
-	    </div>
-    </div>
-  	<div id="mainbody">
-		<form enctype="multipart/form-data" action="T_HR_YGGZ/addResult.jsp" method="post">
+   	<div> <jsp:include  page="top.jsp" flush="true"/></div>
+  	<div id="mainbody" align="center">
+		<form action="T_HR_XXLL/alterResult.jsp" method="post">
 		<div style="padding-left:10px;">
   		<table >
+  		<caption align="top"><h3>学习培训履历表</h3></caption>
   			<tr>
-  				<td style="color:red">学历履历编号：</td>
+  				<td style="color:red">履历ID</td>
   				<td><input type="text" id="XXLLID" name="XXLLID" /></td>
-  				<td style="color:red">姓名编号：</td>
+  				<td style="color:red">人ID</td>
   				<td><input type="text" id="RID" name="RID" /></td>
   			</tr>
   			<tr>
-  				<td>起止日期：</td>
+  				<td>起止日期</td>
   				<td><input type="text" id="QSRQ" name="QSRQ" /></td>
-  				<td>截止日期：</td>
+  				<td>截止日期</td>
   				<td><input type="text" id="JZRQ" name="JZRQ" /></td>
-  				<td>就读学校：</td>
+  				<td>就读学校</td>
   				<td><input type="text" id="JDXX" name="JDXX" /></td>
   			</tr>
   			<tr>
-  				<td>所学专业：</td>
+  				<td>所学专业</td>
   				<td><input type="text" id="SXZY" name="SXZY" /></td>
-  				<td>职务：</td>
+  				<td>职务</td>
   				<td><input type="text" id="ZW" name="ZW" /></td>
-  				<td>证明人：</td>
+  				<td>证明人</td>
   				<td><input type="text" id="ZMR" name="ZMR" /></td> 				
   			</tr>
   			<tr>
-  				<td>更新人ID：</td>
+  				<td>更新人ID</td>
   				<td><input type="text" id="GXRID" name="GXRID" /></td>
-  				<td>更新人姓名：</td>
+  				<td>更新人姓名</td>
   				<td><input type="text" id="GXRXM" name="GXRXM" /></td>		
   			</tr>
   			<tr>
-  				<td>更新类型：</td>
+  				<td>更新类型</td>
   				<td><input type="text" id="GXLX" name="GXLX" /></td>
-  				<td>更新原因：</td>
+  				<td>更新原因</td>
   				<td><input type="text" id="GXYY" name="GXYY" /></td>
-  				<td>更新时间：</td>
+  				<td>更新时间</td>
   				<td><input type="text" id="GXSJ" name="GXSJ" /></td>
   		</table>
   		</div>

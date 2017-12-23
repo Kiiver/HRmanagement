@@ -17,15 +17,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
    <body>
 	<div> <jsp:include  page="top.jsp" flush="true"/></div>
-    <div id="mainbody">
-		<form enctype="multipart/form-data" action="T_HR_BMXX/addResult.jsp" method="post">
+    <div id="mainbody" align="center">
+		<form action="T_HR_BMXX/addResult.jsp" method="post">
 		<div style="padding-left:10px;">
-  		<table style="text-align: end;">
+  		<table style="text-align: end;" class="showTB" align="center" cellpadding="10" cellspacing="0">
   			<caption align="top"><h3>部门信息表</h3></caption>  
   			<tr>
   				<td style="color:red">部门ID</td>
   				<td><input type="text" id="ID" name="ID" placeholder="必填"/></td>
-  				<td>编号</td>
+  				<td>部门编码</td>
   				<td><input type="text" id="BM" name="BM" /></td>
   				<td>名称</td>
   				<td><input type="text" id="MC" name="MC" /></td>
@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			</tr>
   		</table>
   		<div class="formsubmit">
-  		<input type="submit"  value="添加"  onclick="return checkYGJBXXform(this.form)"/>
+  		<input type="submit"  value="添加"  onclick="return checkBMXXform(this.form)"/>
   		<input type="reset"  value="重置"  />
   		</div>
   		</div>

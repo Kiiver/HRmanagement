@@ -66,22 +66,6 @@ function checkYGGZform(form){
 		alert("data of RID must be int");
 		return false;
 	}
-	if(form.JBGZ.value==""){
-		form.JBGZ.focus();
-		return false;
-	}
-	if(form.YXBS.value==""){
-		form.YXBS.focus();
-		return false;
-	}
-	if(isNaN(form.GXRID.value)){
-		alert("data of GXRID must be int");
-		return false;
-	}
-	if(form.GXLX.value==""){
-		form.GXLX.focus();
-		return false;
-	}
 	return true;
 }
 function checkXXLLform(form){
@@ -105,6 +89,36 @@ function checkXXLLform(form){
 	}
 	if(form.GXRXM.value==""){
 		form.SCRXM.focus();
+		return false;
+	}
+	return true;
+}
+function checkRXXXform(form){
+	//更新人ID,必须为数值型
+	if(isNaN(form.RID.value)){
+		alert("data of RID must be int");
+		return false;
+	}
+	//date类型数据格式控制
+	if(form.PSSJ.value==""){
+		form.PSSJ.focus();
+		return false;
+	}
+	return true;
+}
+
+function checkBMXXform(form){
+	if(isNaN(form.BM_ID.value)){
+		alert("data of BM_ID must be int");
+		return false;
+	}
+	if(isNaN(form.GXLX.value)){
+		alert("data of GXLX must be int");
+		return false;
+	}
+	//date类型数据格式控制
+	if(form.CJRQ.value==""){
+		form.CJRQ.focus();
 		return false;
 	}
 	return true;

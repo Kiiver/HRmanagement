@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<div> <jsp:include  page="top.jsp" flush="true"/></div>
   		<div id="mainbody">
   		<div id="search">
-			<form action="T_HR_YGJBXX/searchResult.jsp" method="get" style="text-align:center">
+			<form action="T_HR_XXLL/searchResult.jsp" method="get" style="text-align:center">
 				<input type="text" placeholder="输入编号" name="RID">
 				<input type="submit" value="搜索" />
 			</form>

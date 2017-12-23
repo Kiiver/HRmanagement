@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ page import="java.sql.*,com.bean.T_HR_YGJBXX,com.oper.T_HR_YGJBXXOper" %>
+<%@ page import="java.sql.*,com.bean.T_HR_YGJBXX,com.oper.T_HR_YGJBXXOper,com.bean.T_HR_RXXX,com.oper.T_HR_RXXXOper" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -12,30 +12,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>员工基本信息</title>
 	<link rel="stylesheet" href="<%=basePath %>/CSS/Formcss.css" type="text/css"></link>
 	<script src="JavaScript/Myscript.js"></script>
-   		
-	</script>
   </head>
   
   <body>
    	<div> <jsp:include  page="top.jsp" flush="true"/></div>
     <%
     	String ID = request.getParameter("id");
-    	//System.out.println("id is OK，ID="+ID);
+    	System.out.println("id is OK，ID="+ID);
     	T_HR_YGJBXXOper op = new T_HR_YGJBXXOper();
     	List<T_HR_YGJBXX> list = op.searchByRID(Integer.parseInt(ID));//查询出的结果没有ID
     	//System.out.println("Operation is OK");
      	T_HR_YGJBXX each = (T_HR_YGJBXX)list.get(0);
      	
+     	
+       T_HR_RXXXOper rxxxop = new T_HR_RXXXOper();
+       List<T_HR_RXXX> listrxxx = rxxxop.searchByRID(each.getRID());
+       T_HR_RXXX eachpic = new T_HR_RXXX();
+       String picture = "bg.jpg";
+       if(listrxxx.size()!=0){
+       		eachpic = (T_HR_RXXX)listrxxx.get(listrxxx.size()-1);
+       		picture = eachpic.getXP();
+       }
+       
     %>
   	<div id="mainbody" align="center">
   	
-		<form enctype="multipart/form-data" action="T_HR_YGJBXX/alterResult.jsp" method="post">
+		<form action="T_HR_YGJBXX/alterResult.jsp" method="post">
 		<div style="padding-left:10px;">
   		<table style="text-align: end;">
   			<caption align="top"><h3>员工基本信息表</h3></caption> 
   			<tr style="display:none">
   				<td>RID</td>
-  				<td><input type="text" id="RID" name="RID" value="<%=ID %>"/></td>
+  				<td><input type="text" id="RID" name="RID" value="<%=each.getRID() %>"/></td>
   			</tr> 
   			<tr>
   				<td style="color:red">姓名</td>
@@ -44,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				<td><input type="text" id="XB" name="XB" value="<%=each.getXB() %>"/></td>
   				<td>籍贯</td>
   				<td><input type="text" id="JG" name="JG" value="<%=each.getJG() %>"/></td>
-  				<td rowspan="4" style="text-align: center;padding-left: 10px;"><div>照片信息</div><img id="img" src="<%=path %>/images/bg.jpg" width="90" height="120" /></td>
+  				<td rowspan="4" style="text-align: center;padding-left: 10px;"><div>照片信息</div><img id="img" src="<%=path %>/Pictures/<%=picture %>" width="90" height="120" /></td>
   			</tr>
   			<tr>
   				<td>出生年月</td>

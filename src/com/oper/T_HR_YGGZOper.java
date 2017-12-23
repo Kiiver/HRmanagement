@@ -20,14 +20,14 @@ public class T_HR_YGGZOper {
 			rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				T_HR_YGGZ yggz = new T_HR_YGGZ();
-				yggz.setGZID(rs.getInt("GZID"));
+				yggz.setGZID(rs.getInt("GZ_ID"));
 				yggz.setRID(rs.getInt("RID"));
-				yggz.setJBGZ(rs.getInt("JBGZ"));
-				yggz.setZWGZ(rs.getInt("ZWGZ"));
-				yggz.setYXBS(rs.getInt("YXBS"));
-				yggz.setGXRID(rs.getInt("GXRID"));
+				yggz.setJBGZ(rs.getString("JBGZ"));
+				yggz.setZWGZ(rs.getString("ZWGZ"));
+				yggz.setYXBS(rs.getString("YXBS"));
+				yggz.setGXRID(rs.getString("GXRID"));
 				yggz.setGXRXM(rs.getString("GXRXM"));
-				yggz.setGXLX(rs.getInt("GXLX"));
+				yggz.setGXLX(rs.getString("GXLX"));
 				yggz.setGXYY(rs.getString("GXYY"));
 				yggz.setGXSJ(rs.getTimestamp("GXSJ"));
 				list.add(yggz);
@@ -41,22 +41,22 @@ public class T_HR_YGGZOper {
 	}
 	public List<T_HR_YGGZ> searchByGZID(int GZID)throws Exception{
 		List<T_HR_YGGZ> list = new ArrayList<T_HR_YGGZ>();
-		sql = "SELECT * FROM t_hr_yggz WHERE GZID='"+GZID+"'";
+		sql = "SELECT * FROM t_hr_yggz WHERE GZ_ID='"+GZID+"'";
 		try{
 	    	stmt = conn.createStatement();
 	        rs = stmt.executeQuery(sql);
 			while(rs.next()){
 				T_HR_YGGZ yggz = new T_HR_YGGZ();
-				yggz.setGZID(rs.getInt("GZID"));
+				yggz.setGZID(rs.getInt("GZ_ID"));
 				yggz.setRID(rs.getInt("RID"));
-				yggz.setJBGZ(rs.getInt("JBGZ"));
-				yggz.setZWGZ(rs.getInt("ZWGZ"));
-				yggz.setYXBS(rs.getInt("YXBS"));
-				yggz.setGXRID(rs.getInt("GXRID"));
+				yggz.setJBGZ(rs.getString("JBGZ"));
+				yggz.setZWGZ(rs.getString("ZWGZ"));
+				yggz.setYXBS(rs.getString("YXBS"));
+				yggz.setGXRID(rs.getString("GXRID"));
 				yggz.setGXRXM(rs.getString("GXRXM"));
-				yggz.setGXLX(rs.getInt("GXLX"));
+				yggz.setGXLX(rs.getString("GXLX"));
 				yggz.setGXYY(rs.getString("GXYY"));
-				//yggz.setGXSS(rs.getString("GXSS"));
+				yggz.setGXSJ(rs.getTimestamp("GXSJ"));
 				list.add(yggz);
 			}
 			return list;
@@ -92,8 +92,8 @@ public class T_HR_YGGZOper {
 			conn.close();
 		}
 	}
-	public boolean delYGGZ(String GZID)throws Exception{
-		sql = "DELETE FROM t_hr_yggz where RID='"+GZID+"'";
+	public boolean delYGGZ(int GZID)throws Exception{
+		sql = "DELETE FROM t_hr_yggz where GZ_ID='"+GZID+"'";
 		try{
 			Statement stmt = conn.createStatement();
 			if(stmt.executeUpdate(sql)==1)
@@ -109,7 +109,7 @@ public class T_HR_YGGZOper {
 	public boolean alterYGGZ(T_HR_YGGZ yggz)throws Exception{
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
 		String sqla = " UPDATE t_hr_yggz SET ";
-		String sqlc = " WHERE GZID=" + yggz.getGZID();
+		String sqlc = " WHERE GZ_ID=" + yggz.getGZID();
 		String sqlb = 	" RID='"+yggz.getRID()+"'," +
 						" JBGZ='"+yggz.getJBGZ()+"'," +
 						" ZWGZ='"+yggz.getZWGZ()+"'," +

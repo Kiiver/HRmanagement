@@ -14,41 +14,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <div id="mytop">
-		<div id="myhead">
-			<span style="float:left;">
-		      欢迎：<br>
-		    </span>
-		    <span style="float:right;"><a href="<%=basePath %>index.jsp" target="_top">&nbsp;&nbsp;注	销&nbsp;&nbsp;</a></span>
-		    <span style="float:right;"><a href="<%=basePath %>welcome.jsp" target="_top">&nbsp;&nbsp;主	页&nbsp;&nbsp;</a></span>
-		 	<table style="float: left;">
-		 		<tr>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp" title="员工基本信息">员工基本信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp" title="部门信息">部门信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGGZ/T_HR_YGGZ_all.jsp" title="员工工资">员工工资</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_RXXX/T_HR_RXXX_all.jsp" title="人像信息">人像信息</a></td>
-		 		</tr>
-		 	</table>
-		 	
-	    </div>
-    </div>
+	<div> <jsp:include  page="top.jsp" flush="true"/></div>	
   	<div id="mainbody">
   		<div id="search">
-			<form action="searchResult.jsp" method="get" style="text-align:center">
+			<form action="T_HR_YGGZ/searchResult.jsp" method="get" style="text-align:center">
 				<input type="text" placeholder="输入工资编号" name="GZID">
-				<input type="text" placeholder="输入姓名编号" name="RID" />
 				<input type="submit" value="搜索" />
 			</form>
 		</div>
         <table class="showTB" align="center" cellpadding="10" cellspacing="0" >
+        	<caption align="top"><h3>员工工资表</h3></caption>
       		<tr style="background-color:#c6c6c6">
       			<th>工资ID</th>
       			<th>姓名编号</th>
       			<th>基本工资</th>
       			<th>职务工资</th>
       			<th colspan="2"><a href="T_HR_YGGZ/T_HR_YGGZ_add.jsp" title="添加/Add">添加/Add</a></th>
-      			
-      			<!-- <th><a href="T_HR_YGGZ_add.jsp" title="添加/Add">添加/Add</a></th>  -->
       		</tr>
     <% 
         T_HR_YGGZOper all= new T_HR_YGGZOper();

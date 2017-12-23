@@ -10,43 +10,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>学习履历表</title>
-	<link rel="stylesheet" href="<%=basePath %>/CSS/Mycss.css" type="text/css"></link>
+	<link rel="stylesheet" href="<%=basePath %>/CSS/Formcss.css" type="text/css"></link>
   </head>
   
   <body>
-  	<div id="mytop">
-		<div id="myhead">
-			<span style="float:left;">欢迎：<br></span>
-		    <span style="float:right;"><a href="<%=basePath %>index.jsp" target="_top">注	销</a></span>
-		 	<table style="float: left;">
-		 		<tr>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGJBXX/T_HR_YGJBXX_all.jsp" title="员工基本信息">员工基本信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp" title="部门信息">部门信息</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_JCQK/T_HR_JCQK_all.jsp" title="奖惩情况">奖惩情况</a></td>
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_YGGZ/T_HR_YGGZ_all.jsp" title="员工工资">员工工资</a></td>	
-		 			<td class="headtd"><a href="<%=basePath %>T_HR_XXLL/T_HR_XXLL_all.jsp" title="学习履历">学习履历</a></td>		 			
-		 		</tr>
-		 	</table>
-		 	
-	    </div>
-    </div>
+  	<div> <jsp:include  page="top.jsp" flush="true"/></div>
   		<div id="mainbody">
   		<div id="search">
-			<form action="XXLL_search.jsp" method="get" style="text-align:center">
-				<input type="text" placeholder="输入学习履历编号" name="XXLLID">
-				<input type="text" placeholder="输入姓名编号" name="RID" />
+			<form action="T_HR_XXLL/searchResult.jsp" method="get" style="text-align:center">
+				<input type="text" placeholder="输入履历ID" name="XXLLID">
 				<input type="submit" value="搜索" />
 			</form>
 		</div>
         <table class="showTB" align="center" cellpadding="10" cellspacing="0" >
+        <caption align="top"><h3>学习培训履历表</h3></caption>
       		<tr style="background-color:#c6c6c6">
-      			<th>学习履历编号</th>
-      			<th>姓名编号</th>
+      			<th>履历ID</th>
+      			<th>人ID</th>
       			<th>就读学校</th>
       			<th>所学专业</th>
       			<th>更新时间</th>
       			<th colspan="2"><a href="T_HR_XXLL/T_HR_XXLL_add.jsp" title="添加/Add">添加/Add</a></th>
-      			<!-- <th><a href="T_HR_XXLL_add.jsp" title="添加/Add">添加/Add</a></th>  -->
       		</tr>
     <% 
         T_HR_XXLLOper all= new T_HR_XXLLOper();

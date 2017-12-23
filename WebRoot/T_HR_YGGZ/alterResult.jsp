@@ -25,12 +25,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      	T_HR_YGGZ yggz = new T_HR_YGGZ();
      	yggz.setGZID(Integer.parseInt(request.getParameter("GZID")));
 		yggz.setRID(Integer.parseInt(request.getParameter("RID")));
-		yggz.setJBGZ(Integer.parseInt(request.getParameter("JBGZ")));
-		yggz.setZWGZ(Integer.parseInt(request.getParameter("ZWGZ")));
-		yggz.setYXBS(Integer.parseInt(request.getParameter("YXBS")));
-		yggz.setGXRID(Integer.parseInt(request.getParameter("GXRID")));
+		yggz.setJBGZ(request.getParameter("JBGZ"));
+		yggz.setZWGZ(request.getParameter("ZWGZ"));
+		yggz.setYXBS(request.getParameter("YXBS"));
+		yggz.setGXRID(request.getParameter("GXRID"));
 		yggz.setGXRXM(request.getParameter("GXRXM"));
-		yggz.setGXLX(Integer.parseInt(request.getParameter("GXLX")));
+		yggz.setGXLX(request.getParameter("GXLX"));
 		yggz.setGXYY(request.getParameter("GXYY"));
 //		ygjbxx.setGXSJ(request.getParameter("GXSJ")));
      	
