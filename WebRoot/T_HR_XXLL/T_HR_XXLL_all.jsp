@@ -60,6 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			     	<td><%=each.getRID() %></td>
 			     	<td><%=each.getJDXX() %></td>
 			     	<td><%=each.getSXZY() %></td>
+			     	<td><%=each.getGXSJ() %></td>
 			     	<td><a href="T_HR_XXLL/T_HR_XXLL_alter.jsp?id=<%=each.getXXLLID() %>" title="编辑">编辑</a></td>
 			     	<td><a href="T_HR_XXLL/delResult.jsp?id=<%=each.getRID() %>" title="删除">删除 </a></td>
 		     	</tr>

@@ -29,7 +29,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<center>员工基本信息</center>
 	    	</div>
 	    </td>
-	    
 	    <td>
 	    	<div>
 	    	<a href="<%=basePath %>T_HR_BMXX/T_HR_BMXX_all.jsp" title="部门信息">
@@ -38,7 +37,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<center >部门信息</center>
 	    	</div>
 	    </td>
-	    
+	    <td>
+	    	<div>
+	    	<a href="<%=basePath %>T_HR_YGGZ/T_HR_YGGZ_all.jsp" title="员工工资">
+	    	<img src="<%=path %>/images/YGGZ.png" width="240" height="180" />
+	    	</a>
+	    	<center >员工工资</center>
+	    	</div>
+	    </td>
+	    </tr>
+	    <tr>
+	     <td>
+	    	<div>
+	    	<a href="<%=basePath %>T_HR_JCQK/T_HR_JCQK_all.jsp" title="奖惩情况">
+	    	<img src="<%=path %>/images/JCQK.png" width="240" height="180" />
+	    	</a>
+	    	<center >奖惩情况</center>
+	    	</div>
+	    </td>
+	     <td>
+	    	<div>
+	    	<a href="<%=basePath %>T_HR_RXXX/T_HR_RXXX_all.jsp" title="人像信息">
+	    	<img src="<%=path %>/images/RXXX.png" width="240" height="180" />
+	    	</a>
+	    	<center >人像信息</center>
+	    	</div>
+	    </td>
 	    <td>
 	    	<div>
 	    	<a href="<%=basePath %>T_HR_XXLL/T_HR_XXLL_all.jsp" title="学习履历">
